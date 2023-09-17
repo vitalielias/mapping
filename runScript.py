@@ -18,7 +18,7 @@ def process_file(file_path, mapFile, outputPath):
     for idx, mapped_metadata in enumerate(mapped_metadata_list):
         outputter = JsonOutputter(mapped_metadata)
         output_file_name = f"{fileName}_{idx}.json" if len(mapped_metadata_list) > 1 else f"{fileName}.json"
-        saved_file_path = outputter.save_to_file(os.path.join(outputPath, output_file_name))
+        saved_file_path = outputter.save_to_file(outputPath)
         generated_files.append(saved_file_path)
 
     return reader, generated_files, mapped_metadata_list
