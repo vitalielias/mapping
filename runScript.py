@@ -37,7 +37,8 @@ if __name__ == "__main__":
     
     # If the input was a zip file and multiple JSON files were generated, zip them together
     if input_file_path.endswith('.zip') and len(generated_files) > 1:
-        zip_filename = os.path.join(outputPath, os.path.basename(input_file_path).replace('.zip', '_metadata_documents.zip'))
+        # zip_filename = os.path.join(outputPath, os.path.basename(input_file_path).replace('.zip', '_metadata_documents.zip'))
+        zip_filename = outputPath
         JsonOutputter.save_to_zip(zip_filename, mapped_metadata_list, outputPath)
     
     # Clean up the temporary directory used for unzipping
