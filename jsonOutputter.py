@@ -39,7 +39,7 @@ class JsonOutputter:
                 # zipf.writestr(output_file_name, json_content)
                 zipf.writestr(outputPath, json_content)
 
-        JsonOutputter.remove_hidden_files(outputPath)
+        # JsonOutputter.remove_hidden_files(outputPath)
 
     @staticmethod
     def remove_hidden_files(directory):
