@@ -1,11 +1,14 @@
 import hyperspy.api as hs
 import os
 import zipfile
+import shutil
 
 class semReader:
     def __init__(self, file_path):
         self.file_path = file_path
         self.metadata_list = []
+        self.current_file_name = os.path.splitext(os.path.basename(file_path))[0]  # Default to the provided file name
+        self.temp_dir_path = os.path.abspath("temp_metadata_files")
         try:
             if self._is_zip_file():
                 self._process_zip_file()
@@ -20,17 +23,20 @@ class semReader:
     def _process_zip_file(self):
         with zipfile.ZipFile(self.file_path, 'r') as zip_ref:
             # Extract all files to a temporary directory
-            temp_dir = "temp_metadata_files"
+            temp_dir = self.temp_dir_path
             zip_ref.extractall(temp_dir)
             
-            for file_name in os.listdir(temp_dir):
-                file_path = os.path.join(temp_dir, file_name)
-                self.metadata_list.append(self._extract_metadata(file_path))
+            for root, dirs, files in os.walk(temp_dir):
+                for file_name in files:
+                    file_path = os.path.join(root, file_name)
+                    self.current_file_name = os.path.splitext(os.path.basename(file_path))[0]
+                    self.metadata_list.append(self._extract_metadata(file_path))
             
             # Cleanup the temporary directory after processing
-            for file_name in os.listdir(temp_dir):
-                os.remove(os.path.join(temp_dir, file_name))
-            os.rmdir(temp_dir)
+            try:
+                shutil.rmtree(temp_dir)
+            except Exception as e:
+                print(f"Error deleting temporary directory: {e}")
 
     def _extract_metadata(self, file_path):
         md = hs.load(file_path, lazy=True)
@@ -42,4 +48,13 @@ class semReader:
         return self.metadata_list
 
     def get_file_name(self):
-        return os.path.splitext(os.path.basename(self.file_path))[0]
+        return self.current_file_name
+    
+    def get_temp_dir_path(self):
+        return self.temp_dir_path
+
+
+
+
+
+
