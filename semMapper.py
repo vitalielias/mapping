@@ -37,7 +37,7 @@ class semMapper:
                 else:
                     self.mapped_metadata_list.append(self._map_metadata(metadata))
         
-        cleaner = dataCleaner()
+        cleaner = DataCleaner()
         for metadata in self.mapped_metadata_list:
             cleaner.clean_date_time(metadata)
 

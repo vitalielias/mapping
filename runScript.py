@@ -1,7 +1,6 @@
 from semReader import semReader
 from semMapper import semMapper
 from jsonOutputter import JsonOutputter
-from dataCleaner import DataCleaner
 import os
 import shutil
 import sys
@@ -9,10 +8,6 @@ import sys
 def process_file(file_path, mapFile, outputPath):
     reader = semReader(file_path)
     metadata_list = reader.get_metadata()
-
-    # Instantiate the DataCleaner and clean the metadata
-    cleaner = DataCleaner()
-    cleaned_metadata_list = [cleaner.clean_date_format(metadata) for metadata in metadata_list]
 
     fileName = reader.get_file_name()
     
