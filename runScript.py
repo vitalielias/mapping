@@ -11,7 +11,7 @@ def process_file(file_path, mapFile, outputPath):
 
     fileName = reader.get_file_name()
     
-    mapper = semMapper(cleaned_metadata_list, mapFile)  # Use the cleaned metadata here
+    mapper = semMapper(metadata_list, mapFile)  # Use the cleaned metadata here
     mapped_metadata_list = mapper.get_mapped_metadata()
 
     generated_files = []  # List to store paths of generated JSON files
