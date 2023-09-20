@@ -1,6 +1,7 @@
 from semReader import semReader
 from semMapper import semMapper
 from jsonOutputter import JsonOutputter
+from dataCleaner import DataCleaner
 import os
 import shutil
 import sys
@@ -8,9 +9,14 @@ import sys
 def process_file(file_path, mapFile, outputPath):
     reader = semReader(file_path)
     metadata_list = reader.get_metadata()
+
+    # Instantiate the DataCleaner and clean the metadata
+    cleaner = DataCleaner()
+    cleaned_metadata_list = [cleaner.clean_date_format(metadata) for metadata in metadata_list]
+
     fileName = reader.get_file_name()
     
-    mapper = semMapper(metadata_list, mapFile)
+    mapper = semMapper(cleaned_metadata_list, mapFile)  # Use the cleaned metadata here
     mapped_metadata_list = mapper.get_mapped_metadata()
 
     generated_files = []  # List to store paths of generated JSON files
@@ -23,15 +29,16 @@ def process_file(file_path, mapFile, outputPath):
 
     return reader, generated_files, mapped_metadata_list
 
+
 if __name__ == "__main__":
     # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/csv_test_images.zip'
-    # # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/Au-Gr_06.tif'
-    # mapFile = '/Users/elias/Desktop/MatWerk_Projects/mapping/map_files/hsSemMap.json'
-    # outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
+    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/Au-Gr_06.tif'
+    mapFile = '/Users/elias/Desktop/MatWerk_Projects/mapping/map_files/hsSemMap.json'
+    outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
     
-    mapFile         = sys.argv[1]
-    input_file_path = sys.argv[2]
-    outputPath      = sys.argv[3]
+    # mapFile         = sys.argv[1]
+    # input_file_path = sys.argv[2]
+    # outputPath      = sys.argv[3]
     
     reader_instance, generated_files, mapped_metadata_list = process_file(input_file_path, mapFile, outputPath)
     
