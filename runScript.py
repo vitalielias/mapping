@@ -32,13 +32,13 @@ def process_file(file_path, mapFile, outputPath):
 
 if __name__ == "__main__":
     # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/csv_test_images.zip'
-    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/Au-Gr_06.tif'
-    mapFile = '/Users/elias/Desktop/MatWerk_Projects/mapping/map_files/hsSemMap.json'
-    outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
+    # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/Au-Gr_06.tif'
+    # mapFile = '/Users/elias/Desktop/MatWerk_Projects/mapping/map_files/hsSemMap.json'
+    # outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
     
-    # mapFile         = sys.argv[1]
-    # input_file_path = sys.argv[2]
-    # outputPath      = sys.argv[3]
+    mapFile         = sys.argv[1]
+    input_file_path = sys.argv[2]
+    outputPath      = sys.argv[3]
     
     reader_instance, generated_files, mapped_metadata_list = process_file(input_file_path, mapFile, outputPath)
     
