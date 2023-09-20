@@ -24,8 +24,9 @@ class JsonOutputter:
 
     def save_to_file(self, file_path):
         nested_json = self.generate_nested_json()
-        with open(file_path, 'w') as f:
+        with open(file_path + 'output.json', 'w') as f:
             json.dump(nested_json, f, indent=4)
+        print(f'File output to {file_path}.')
         return file_path  # Return the path of the saved file
     
     @staticmethod
@@ -35,8 +36,7 @@ class JsonOutputter:
                 outputter = JsonOutputter(data)
                 nested_json = outputter.generate_nested_json()
                 json_content = json.dumps(nested_json, indent=4)
-                # Generate a unique filename based on the index
-                output_file_name = f"metadata_{idx}.json"
+                output_file_name = f"{os.path.basename(zip_filename).replace('.zip', '')}_{idx}.json"
                 zipf.writestr(output_file_name, json_content)
 
 

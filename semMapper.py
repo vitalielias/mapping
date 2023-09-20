@@ -39,6 +39,8 @@ class semMapper:
         
         cleaner = DataCleaner()
         for metadata in self.mapped_metadata_list:
+            # print(f'Printing Metadata before cleaner func:')
+            # print(metadata)
             cleaner.clean_date_format(metadata)
 
         return self.mapped_metadata_list
