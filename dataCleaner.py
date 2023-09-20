@@ -12,7 +12,7 @@ class DataCleaner:
         
         # Convert to ISO 8601 format
         try:
-            dt = datetime.datetime.strptime(f"{date_str} {time_str}", "%d %b %Y %H:%M:%S")
+            dt = datetime.strptime(f"{date_str} {time_str}", "%d %b %Y %H:%M:%S")
             iso_format = dt.isoformat()
             metadata["entry"]["endTime"] = iso_format
         except ValueError:
