@@ -27,7 +27,7 @@ def process_file(file_path, mapFile, outputPath):
 
 if __name__ == "__main__":
     # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/csv_test_images.zip'
-    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/Au-Gr_06.tif'
+    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEM-Mapping-Tool/main/test_images/DifferentDetector/1-as-cast_16_Sch_10k_InLens.tif'
     mapFile = '/Users/elias/Desktop/MatWerk_Projects/mapping/map_files/hsSemMap.json'
     outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
     
