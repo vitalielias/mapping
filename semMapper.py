@@ -1,4 +1,5 @@
 import json
+from dataCleaner import DataCleaner
 
 class semMapper:
     def __init__(self, metadata_list, map_file_path):
@@ -35,5 +36,10 @@ class semMapper:
                     self.mapped_metadata_list.append({"message": "No metadata matching the schema is available. The file may be from an instrument that is too old to embed the required metadata, or a metadata file type which is incompatible with Hyperspy."})
                 else:
                     self.mapped_metadata_list.append(self._map_metadata(metadata))
+        
+        cleaner = dataCleaner()
+        for metadata in self.mapped_metadata_list:
+            cleaner.clean_date_time(metadata)
+
         return self.mapped_metadata_list
 
