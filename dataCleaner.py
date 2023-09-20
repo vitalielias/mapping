@@ -7,20 +7,19 @@ class DataCleaner:
         """
         Convert date and time from the metadata to ISO 8601 format.
         """
+        date_str = metadata.get("entry", {}).get("endTime", {}).get("Date", "")
+        time_str = metadata.get("entry", {}).get("endTime", {}).get("Time", "")
+        
+        # Convert to ISO 8601 format
         try:
-            # Extract date and time from metadata
-            date_str = metadata.get("entry", {}).get("endTime", {}).get("Date", "")
-            time_str = metadata.get("entry", {}).get("endTime", {}).get("Time", "")
-            
-            # Convert to ISO 8601 format
-            combined_str = f"{date_str} {time_str}"
-            dt = datetime.strptime(combined_str, '%d %b %Y %H:%M:%S')
+            dt = datetime.datetime.strptime(f"{date_str} {time_str}", "%d %b %Y %H:%M:%S")
             iso_format = dt.isoformat()
-
-            # Update metadata with the new format
             metadata["entry"]["endTime"] = iso_format
-
         except ValueError:
             print(f"Error: Unable to convert date and time for {metadata.get('entry', {}).get('title', '')}")
 
+        # Remove the old Date and Time keys
+        if "endTime" in metadata.get("entry", {}):
+            metadata["entry"]["endTime"].pop("Date", None)
+            metadata["entry"]["endTime"].pop("Time", None)
         return metadata
