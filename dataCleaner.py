@@ -49,7 +49,7 @@ class DataCleaner:
         # Define a mapping of Unicode escape sequences to replacement strings
         replacements = {
             "\u00b5": "µ",
-            "\u00b0": "degrees"
+            "\u00b0": "degree"
         }
 
         # Recursively replace special characters in the metadata dictionary
