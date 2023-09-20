@@ -40,6 +40,8 @@ class semMapper:
         cleaner = DataCleaner()
         for metadata in self.mapped_metadata_list:
             cleaner.clean_date_format(metadata)
+            cleaner.clean_pixel_count(metadata)
+            cleaner.replace_special_characters(metadata)
 
         return self.mapped_metadata_list
 
