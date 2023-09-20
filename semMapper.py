@@ -39,7 +39,7 @@ class semMapper:
         
         cleaner = DataCleaner()
         for metadata in self.mapped_metadata_list:
-            cleaner.clean_date_time(metadata)
+            cleaner.clean_date_format(metadata)
 
         return self.mapped_metadata_list
 
