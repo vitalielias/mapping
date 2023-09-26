@@ -11,7 +11,7 @@ class SchemaValidator:
         Validate a JSON document against the provided schema and store all errors.
         
         Parameters:
-        - json_data (dict): The JSON document to validate.
+        - json_data (dict): The JSON document to validate. The json Python parser can parse JSON documents as Python dict objects.
         """
         validator = Draft7Validator(self.schema)
         errors = sorted(validator.iter_errors(json_data), key = lambda e: e.path)
