@@ -4,6 +4,7 @@ from jsonOutputter import JsonOutputter
 import os
 import shutil
 import sys
+from schemaValidator import SchemaValidator
 
 def process_file(file_path, mapFile, outputPath):
     reader = semReader(file_path)
@@ -21,6 +22,8 @@ def process_file(file_path, mapFile, outputPath):
         output_file_name = f"{fileName}_{idx}.json" if len(mapped_metadata_list) > 1 else f"{fileName}.json"
         saved_file_path = outputter.save_to_file(outputPath)
         generated_files.append(saved_file_path)
+
+    # Schema validation here?? What should happen?
 
     return reader, generated_files, mapped_metadata_list
 
