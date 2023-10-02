@@ -48,9 +48,21 @@ class SemReader:
             str: Path to the temporary directory where the ZIP file contents are extracted.
         """
         if self.determine_file_format(file_path) == 'ZIP':
-            temp_dir = os.path.abspath("temp_extracted_files")
+            self.temp_dir = os.path.abspath("temp_extracted_files")
             with zipfile.ZipFile(file_path, 'r') as zip_ref:
-                zip_ref.extractall(temp_dir)
-            return temp_dir
+                zip_ref.extractall(self.temp_dir)
+            return self.temp_dir
         else:
             raise ValueError(f"File {file_path} is not a ZIP file.")
+
+        
+    def delete_temp_dir(self):
+        """
+        Deletes the temporary directory if it exists.
+        """
+        if hasattr(self, 'temp_dir'):
+            try:
+                shutil.rmtree(self.temp_dir)
+                print(f"Successfully deleted temporary directory: {self.temp_dir}")
+            except Exception as e:
+                print(f"Error deleting temporary directory: {e}")
