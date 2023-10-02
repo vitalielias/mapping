@@ -1,60 +1,56 @@
-import hyperspy.api as hs
 import os
 import zipfile
-import shutil
 
-class semReader:
+class SemReader:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.metadata_list = []
-        self.current_file_name = os.path.splitext(os.path.basename(file_path))[0]  # Default to the provided file name
-        self.temp_dir_path = os.path.abspath("temp_metadata_files")
-        try:
-            if self._is_zip_file():
-                self._process_zip_file()
-            else:
-                self.metadata_list.append(self._extract_metadata(self.file_path))
-        except Exception as e:
-            print(f'Error loading metadata from {self.file_path}: {e}')
 
-    def _is_zip_file(self):
-        return zipfile.is_zipfile(self.file_path)
+    def determine_file_format(self, file_path: str) -> str:
+        """
+        Determines the format of the given file.
 
-    def _process_zip_file(self):
-        with zipfile.ZipFile(self.file_path, 'r') as zip_ref:
-            # Extract all files to a temporary directory
-            temp_dir = self.temp_dir_path
-            zip_ref.extractall(temp_dir)
-            
-            for root, dirs, files in os.walk(temp_dir):
-                for file_name in files:
-                    file_path = os.path.join(root, file_name)
-                    self.current_file_name = os.path.splitext(os.path.basename(file_path))[0]
-                    self.metadata_list.append(self._extract_metadata(file_path))
-            
-            # Cleanup the temporary directory after processing
-            try:
-                shutil.rmtree(temp_dir)
-            except Exception as e:
-                print(f"Error deleting temporary directory: {e}")
+        Args:
+            file_path (str): Path to the input file.
 
-    def _extract_metadata(self, file_path):
-        md = hs.load(file_path, lazy=True)
-        return md.original_metadata.as_dictionary().get('CZ_SEM', {})
+        Returns:
+            str: The format of the file ('TIFF', 'ZIP', 'UNKNOWN').
+        """
+        if file_path.endswith('.tiff') or file_path.endswith('.tif'):
+            return 'TIFF'
+        elif zipfile.is_zipfile(file_path):
+            return 'ZIP'
+        else:
+            return 'UNKNOWN'
 
-    def get_metadata(self):
-        if not self.metadata_list:
-            print("Metadata not loaded or empty.")
-        return self.metadata_list
+    def read_single_file(self, file_path: str) -> str:
+        """
+        Reads a single TIFF file.
 
-    def get_file_name(self):
-        return self.current_file_name
-    
-    def get_temp_dir_path(self):
-        return self.temp_dir_path
+        Args:
+            file_path (str): Path to the TIFF file.
 
+        Returns:
+            str: Path to the TIFF file.
+        """
+        if self.determine_file_format(file_path) == 'TIFF':
+            return file_path
+        else:
+            raise ValueError(f"File {file_path} is not a TIFF file.")
 
+    def read_zip_file(self, file_path: str) -> str:
+        """
+        Reads a ZIP file and extracts its contents to a temporary directory.
 
+        Args:
+            file_path (str): Path to the ZIP file.
 
-
-
+        Returns:
+            str: Path to the temporary directory where the ZIP file contents are extracted.
+        """
+        if self.determine_file_format(file_path) == 'ZIP':
+            temp_dir = os.path.abspath("temp_extracted_files")
+            with zipfile.ZipFile(file_path, 'r') as zip_ref:
+                zip_ref.extractall(temp_dir)
+            return temp_dir
+        else:
+            raise ValueError(f"File {file_path} is not a ZIP file.")
