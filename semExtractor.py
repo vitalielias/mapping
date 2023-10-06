@@ -67,12 +67,14 @@ class MetadataExtractor:
         except Exception as e:
             return {"error": str(e)}
 
-    def extract(self) -> dict:
+    def extract(self) -> (str, dict, dict):
         """
         Tries all metadata extraction methods and prints the outcome for each.
 
         Returns:
-            dict: Feedback on the consistency of metadata lengths across methods or an error message if all methods fail.
+            str: Feedback on the consistency of metadata lengths across methods.
+            dict: Lengths of the metadata dictionaries for each successful method.
+            dict: Metadata dictionaries for each method.
         """
         methods = {
             "Hyperspy": self.hyperspy_extract,
@@ -81,10 +83,12 @@ class MetadataExtractor:
         }
 
         metadata_lengths = {}
+        metadata_results = {}
         successful_methods = []
 
         for method_name, method in methods.items():
             metadata = method()
+            metadata_results[method_name] = metadata
             if not metadata.get("error"):
                 print(f"Metadata extraction succeeded using {method_name} method.")
                 metadata_lengths[method_name] = len(metadata)
@@ -93,9 +97,13 @@ class MetadataExtractor:
                 print(f"Metadata extraction failed using {method_name} method.")
 
         if len(set(metadata_lengths.values())) == 1:
-            return {"message": "All successful methods produced metadata of the same length."}
+            message = "All successful methods produced metadata of the same length."
         else:
-            return {"message": "Metadata lengths vary across methods.", "lengths": metadata_lengths}
+            message = "Metadata lengths vary across methods."
+
+        return message, metadata_lengths, metadata_results
+
+
 
 
 
