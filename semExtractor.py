@@ -1,6 +1,6 @@
 from PIL import Image
 import hyperspy.api as hs
-import tifffile
+import zeisstiffmeta as ztm
 
 class MetadataExtractor:
     """
@@ -28,27 +28,42 @@ class MetadataExtractor:
     def pil_extract(self) -> dict:
         """
         Extracts metadata using the PIL tags method.
-
+        
         Returns:
             dict: Extracted metadata as a Python dictionary.
         """
         try:
             with Image.open(self.file_path) as img:
-                return img.tag_v2
+                metadata = {}
+                for tag, value in img.tag_v2.items():
+                    if tag in [34118, 34682]:
+                        lines = value.split("\n")
+                        for line in lines:
+                            if "=" in line:
+                                key, val = line.split("=", 1)
+                                key = key.strip()
+                                values = tuple(val.strip().split())
+                                if len(values) == 1:
+                                    values = values[0]
+                                metadata[key] = values
+                return metadata
+        except Exception as e:
+            return {"error": str(e)}
+
         except Exception as e:
             return {"error": str(e)}
 
     def zeiss_extract(self) -> dict:
         """
-        Extracts metadata using the Zeiss TIFF reader method.
-
+        Extracts metadata using the Zeiss TIFF metadata reader.
+        
         Returns:
             dict: Extracted metadata as a Python dictionary.
         """
         try:
-            # Assuming `tifffile` is the Zeiss TIFF reader
-            with tifffile.TiffFile(self.file_path) as tif:
-                return tif.pages[0].tags
+            metadata_list = ztm.zeiss_meta(self.file_path)
+            metadata = ztm.meta_to_dict_all(metadata_list)
+            return metadata
         except Exception as e:
             return {"error": str(e)}
 
@@ -57,7 +72,7 @@ class MetadataExtractor:
         Tries all metadata extraction methods and prints the outcome for each.
 
         Returns:
-            dict: Extracted metadata from the first successful method or an error message if all methods fail.
+            dict: Feedback on the consistency of metadata lengths across methods or an error message if all methods fail.
         """
         methods = {
             "Hyperspy": self.hyperspy_extract,
@@ -65,21 +80,22 @@ class MetadataExtractor:
             "Zeiss": self.zeiss_extract
         }
 
-        successful_metadata = None
+        metadata_lengths = {}
+        successful_methods = []
 
         for method_name, method in methods.items():
             metadata = method()
             if not metadata.get("error"):
                 print(f"Metadata extraction succeeded using {method_name} method.")
-                if not successful_metadata:
-                    successful_metadata = metadata
+                metadata_lengths[method_name] = len(metadata)
+                successful_methods.append(method_name)
             else:
                 print(f"Metadata extraction failed using {method_name} method.")
 
-        if successful_metadata:
-            return successful_metadata
+        if len(set(metadata_lengths.values())) == 1:
+            return {"message": "All successful methods produced metadata of the same length."}
         else:
-            print("All extraction methods failed.")
-            return {"error": "All extraction methods failed."}
+            return {"message": "Metadata lengths vary across methods.", "lengths": metadata_lengths}
+
 
 
