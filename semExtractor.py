@@ -1,14 +1,7 @@
-from PIL import Image
 import hyperspy.api as hs
-import zeisstiffmeta as ztm
+from PIL import Image
 
 class MetadataExtractor:
-    """
-    Class for extracting metadata from TIFF files using multiple methods.
-
-    Attributes:
-        file_path (str): Path to the file from which metadata needs to be extracted.
-    """
     def __init__(self, file_path: str):
         self.file_path = file_path
 
@@ -50,60 +43,30 @@ class MetadataExtractor:
         except Exception as e:
             return {"error": str(e)}
 
-        except Exception as e:
-            return {"error": str(e)}
-
-    def zeiss_extract(self) -> dict:
-        """
-        Extracts metadata using the Zeiss TIFF metadata reader.
-        
-        Returns:
-            dict: Extracted metadata as a Python dictionary.
-        """
-        try:
-            metadata_list = ztm.zeiss_meta(self.file_path)
-            metadata = ztm.meta_to_dict_all(metadata_list)
-            return metadata
-        except Exception as e:
-            return {"error": str(e)}
-
-    def extract(self) -> (str, dict, dict):
+    def extract(self):
         """
         Tries all metadata extraction methods and prints the outcome for each.
 
         Returns:
-            str: Feedback on the consistency of metadata lengths across methods.
-            dict: Lengths of the metadata dictionaries for each successful method.
-            dict: Metadata dictionaries for each method.
+            tuple: Feedback message, metadata lengths, and metadata dictionaries from each method.
         """
         methods = {
             "Hyperspy": self.hyperspy_extract,
-            "PIL": self.pil_extract,
-            "Zeiss": self.zeiss_extract
+            "PIL": self.pil_extract
         }
 
-        metadata_lengths = {}
         metadata_results = {}
-        successful_methods = []
+        metadata_lengths = {}
 
         for method_name, method in methods.items():
             metadata = method()
             metadata_results[method_name] = metadata
             if not metadata.get("error"):
-                print(f"Metadata extraction succeeded using {method_name} method.")
                 metadata_lengths[method_name] = len(metadata)
-                successful_methods.append(method_name)
+                print(f"Metadata extraction succeeded using {method_name} method.")
             else:
                 print(f"Metadata extraction failed using {method_name} method.")
 
-        if len(set(metadata_lengths.values())) == 1:
-            message = "All successful methods produced metadata of the same length."
-        else:
-            message = "Metadata lengths vary across methods."
+        feedback = "Metadata lengths are consistent." if len(set(metadata_lengths.values())) <= 1 else "Metadata lengths vary between methods."
 
-        return message, metadata_lengths, metadata_results
-
-
-
-
-
+        return feedback, metadata_lengths, metadata_results
