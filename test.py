@@ -5,11 +5,12 @@ import os
 # List of file paths to test
 file_paths = [
     "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/Au-Gr_06.tif",
-    "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/FeMoOx_AntiA_04_1k5x_CN.tif",
-    "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/1-as-cast_16_Sch_10k_InLens.tif",
-    "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM Image 2 - SliceImage - 001.tif",
-    "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_FEI_Helios_Nanolab600.tif",
-    "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_Thermo_Fisher_Helios_G4_PFIB_CXe.tif"
+    # "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/FeMoOx_AntiA_04_1k5x_CN.tif",
+    # "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/1-as-cast_16_Sch_10k_InLens.tif",
+    # "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM Image 2 - SliceImage - 001.tif",
+    # "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_FEI_Helios_Nanolab600.tif",
+    # "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_Thermo_Fisher_Helios_G4_PFIB_CXe.tif",
+    "/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/P10_ID01#4-PtPd_080.tif"
 ]
 
 def test_reader_and_extractor(file_path):

@@ -37,7 +37,7 @@ class SemReader:
         else:
             raise ValueError(f"File {file_path} is not a TIFF file.")
 
-    def read_zip_file(self, file_path: str) -> str:
+    def read_zip_file(self, file_path: str) -> list:
         """
         Reads a ZIP file and extracts its contents to a temporary directory.
 
@@ -45,13 +45,18 @@ class SemReader:
             file_path (str): Path to the ZIP file.
 
         Returns:
-            str: Path to the temporary directory where the ZIP file contents are extracted.
+            list: List of paths to the TIFF files extracted from the ZIP.
         """
         if self.determine_file_format(file_path) == 'ZIP':
             self.temp_dir = os.path.abspath("temp_extracted_files")
             with zipfile.ZipFile(file_path, 'r') as zip_ref:
                 zip_ref.extractall(self.temp_dir)
-            return self.temp_dir
+            
+            # Filter out only the .tif files directly within the extracted directory
+            tif_files = [os.path.join(self.temp_dir, f) for f in os.listdir(self.temp_dir) 
+                         if os.path.isfile(os.path.join(self.temp_dir, f)) and f.endswith('.tif') and not f.startswith('.')]
+            
+            return tif_files
         else:
             raise ValueError(f"File {file_path} is not a ZIP file.")
 

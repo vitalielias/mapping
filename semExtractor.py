@@ -14,9 +14,47 @@ class MetadataExtractor:
         """
         try:
             md = hs.load(self.file_path, lazy=True)
-            return md.original_metadata.as_dictionary().get('CZ_SEM', {})
+            metadata = md.original_metadata.as_dictionary().get('CZ_SEM', {})
+            
+            # If 'CZ_SEM' metadata is not empty, print the tag used
+            if metadata:
+                print("Metadata extracted using the 'CZ_SEM' tag.")
+                metadata.pop('', None)
+            else:
+                non_flat_metadata = md.original_metadata.as_dictionary().get('fei_metadata', {})
+                metadata = flatten_metadata_dict(non_flat_metadata)
+                
+                # If 'fei_metadata' metadata is not empty, print the tag used
+                if metadata:
+                    print("Metadata extracted using the 'fei_metadata' tag.")
+            
+            # If both 'CZ_SEM' and 'fei_metadata' are empty, return an error message
+            if not metadata:
+                return {"error": "Hyperspy could not extract the necessary metadata."}
+            
+            return metadata
         except Exception as e:
             return {"error": str(e)}
+        
+    def flatten_metadata_dict(d):
+        """
+        Flattens a nested dictionary by removing the top-level keys.
+        
+        Args:
+            d (dict): The input nested dictionary.
+            
+        Returns:
+            dict: The flattened dictionary with top-level keys removed.
+        """
+        flattened = {}
+        for k, v in d.items():
+            if isinstance(v, dict):
+                flattened.update(flatten_dict(v))
+            else:
+                flattened[k] = v
+        return flattened
+
+
 
     def pil_extract(self) -> dict:
         """

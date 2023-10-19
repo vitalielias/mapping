@@ -1,0 +1,116 @@
+{
+    "sv_file_name": {
+        "value": "entry.title"
+    },
+    "ap_date": {
+        "value": "entry.endTime.Date"
+    },
+    "ap_time": {
+        "value": "entry.endTime.Time"
+    },
+    "sv_version": {
+        "value": "entry.program.programVersion"
+    },
+    "sv_user_name": {
+        "value": "entry.user.userName"
+    },
+    "ap_specimen_diameter": {
+        "value": "entry.sample.sampleSize.value",
+        "unit": "entry.sample.sampleSize.unit"
+    },
+    "dp_sample_holder": {
+        "value": "entry.sample.sampleHolder"
+    },
+    "sv_serial_number": {
+        "value": "entry.instrument.instrumentManufacturer.modelName"
+    },
+    "ap_system_vac": {
+        "value": "entry.instrument.chamberPressure.value",
+        "unit": "entry.instrument.chamberPressure.unit"
+    },
+    "ap_actualkv": {
+        "value": "entry.instrument.eBeamSource.accelerationVoltage.value",
+        "unit": "entry.instrument.eBeamSource.accelerationVoltage.unit"
+    },
+    "ap_beam_current": {
+        "unit": "entry.instrument.eBeamSource.beamCurrent.unit",
+        "value": "entry.instrument.eBeamSource.beamCurrent.value"
+    },
+    "dp_user_align": {
+        "value": "entry.instrument.stage.stageAlignmentDone"
+    },
+    "ap_stage_at_t": {
+        "value": "entry.instrument.stage.tiltAngle.value",
+        "unit": "entry.instrument.stage.tiltAngle.unit"
+    },
+    "ap_fib_working_distance": {
+        "value": "entry.instrument.FIB.iBeamWorkingDistance.value",
+        "unit": "entry.instrument.FIB.iBeamWorkingDistance.unit"
+    },
+    "ap_stage_at_x": {
+        "value": "entry.instrument.imaging.coordinates.xValue",
+        "unit": "entry.instrument.imaging.coordinates.coordinatesUnit"
+    },
+    "ap_stage_at_y": {
+        "value": "entry.instrument.imaging.coordinates.zValue"
+    },
+    "dp_image_store": {
+        "value": "entry.instrument.imaging.numberOfPixels.xPixels"
+    },
+    "ap_image_pixel_size": {
+        "value": "entry.instrument.imaging.pixelSize.xPixelSize.value",
+        "unit": "entry.instrument.imaging.pixelSize.xPixelSize.unit"
+    },
+    "dp_tilt_correction": {
+        "value": "entry.instrument.imaging.tiltCorrection"
+    },
+    "ap_aperturesize": {
+        "value": "entry.instrument.imaging.apertureSetting.size.value",
+        "unit": "entry.instrument.imaging.apertureSetting.size.unit"
+    },
+    "dp_dwell_time": {
+        "value": "entry.instrument.imaging.dwellTime.value",
+        "unit": "entry.instrument.imaging.dwellTime.unit"
+    },
+    "dp_mixing": {
+        "value": "entry.instrument.detectors.signalMixingDone"
+    },
+    "dp_main_detector": {
+        "value": "entry.instrument.detectors.detector1.detectorName"
+    },
+    "ap_collector_bias": {
+        "value": "entry.instrument.detectors.detector1.detectorBias.value",
+        "unit": "entry.instrument.detectors.detector1.detectorBias.unit"
+    },
+    "ap_stage_bias_voltage_high": {
+        "value": "entry.instrument.eBeamDeceleration.stageBias.value",
+        "unit": "entry.instrument.eBeamDeceleration.stageBias.unit"
+    },
+    "ap_fib_sem_angle": {
+        "value": "entry.instrument.FIB.angleToEBeam.value",
+        "unit": "entry.instrument.FIB.angleToEBeam.unit"
+    },
+    "ap_fib_eht_actual": {
+        "value": "entry.instrument.FIB.iBeamSource.accelerationVoltage.value",
+        "unit": "entry.instrument.FIB.iBeamSource.accelerationVoltage.unit"
+    },
+    "ap_fib_emission_current": {
+        "value": "entry.instrument.FIB.iBeamSource.beamCurrent.value",
+        "unit": "entry.instrument.FIB.iBeamSource.beamCurrent.unit"
+    },
+    "ap_fib_source_lifetime": {
+        "value": "entry.instrument.FIB.iBeamSource.sourceLifetime.value",
+        "unit": "entry.instrument.FIB.iBeamSource.sourceLifetime.unit"
+    },
+    "ap_fib_gun_pressure": {
+        "value": "entry.instrument.FIB.gunPressure.value",
+        "unit": "entry.instrument.FIB.gunPressure.unit"
+    },
+    "dp_gis_channel": {
+        "value": "entry.instrument.FIB.gasInjectionSystem.GISName"
+    },
+    "ap_fib_pixel_size": {
+        "value": "entry.instrument.FIB.FIBSpotSize.value",
+        "unit": "entry.instrument.FIB.FIBSpotSize.unit"
+    }
+}
