@@ -29,22 +29,22 @@ def process_file(file_path, mapFile, outputPath):
 
 if __name__ == "__main__":
     # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/1-as-cast_17_Sch_10k_SESI.tif'
-    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_Thermo_Fisher_Helios_G4_PFIB_CXe.tif'
-    # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/P10_ID01#4-PtPd_080.tif'
-    mapFile = '/Users/elias/Desktop/MatWerk_Projects/Metadata-Schemas-for-Materials-Science/SEM/map_SEM_ThermoFisher.json'
-    # mapFile = '/Users/elias/Desktop/hsSemMap.json'
-    outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
+    # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_Thermo_Fisher_Helios_G4_PFIB_CXe.tif'
+    # # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/P10_ID01#4-PtPd_080.tif'
+    # mapFile = '/Users/elias/Desktop/MatWerk_Projects/Metadata-Schemas-for-Materials-Science/SEM/map_SEM_ThermoFisher.json'
+    # # mapFile = '/Users/elias/Desktop/hsSemMap.json'
+    # outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
     
-    # mapFile         = sys.argv[1]
-    # input_file_path = sys.argv[2]
-    # outputPath      = sys.argv[3]
+    mapFile         = sys.argv[1]
+    input_file_path = sys.argv[2]
+    outputPath      = sys.argv[3]
     
     reader_instance, generated_files, mapped_metadata_list = process_file(input_file_path, mapFile, outputPath)
     
     # If the input was a zip file and multiple JSON files were generated, zip them together
     if input_file_path.endswith('.zip') and len(generated_files) > 1:
-        zip_filename = os.path.join(outputPath, os.path.basename(input_file_path).replace('.zip', '_metadata_documents.zip'))
-        # zip_filename = outputPath # only for use with mapping service
+        # zip_filename = os.path.join(outputPath, os.path.basename(input_file_path).replace('.zip', '_metadata_documents.zip'))
+        zip_filename = outputPath # only for use with mapping service
         JsonOutputter.save_to_zip(zip_filename, mapped_metadata_list, outputPath)
     
     # Clean up the temporary directory used for unzipping
