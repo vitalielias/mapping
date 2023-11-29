@@ -13,6 +13,8 @@ def process_file(file_path, mapFile, outputPath):
     
     mapper = semMapper(metadata_list, mapFile)  # Use the cleaned metadata here
     mapped_metadata_list = mapper.get_mapped_metadata()
+    print(f'Here is the mapped metadata which the runScript receives:\n {mapped_metadata_list}')
+
 
     generated_files = []  # List to store paths of generated JSON files
 
@@ -26,9 +28,11 @@ def process_file(file_path, mapFile, outputPath):
 
 
 if __name__ == "__main__":
-    # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/csv_test_images.zip'
-    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEM-Mapping-Tool/main/test_images/DifferentDetector/1-as-cast_16_Sch_10k_InLens.tif'
-    mapFile = '/Users/elias/Desktop/MatWerk_Projects/mapping/map_files/hsSemMap.json'
+    # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/1-as-cast_17_Sch_10k_SESI.tif'
+    input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/SEM_image_sample_Thermo_Fisher_Helios_G4_PFIB_CXe.tif'
+    # input_file_path = '/Users/elias/Desktop/MatWerk_Projects/SEMtestImages/P10_ID01#4-PtPd_080.tif'
+    mapFile = '/Users/elias/Desktop/MatWerk_Projects/Metadata-Schemas-for-Materials-Science/SEM/map_SEM_ThermoFisher.json'
+    # mapFile = '/Users/elias/Desktop/hsSemMap.json'
     outputPath = '/Users/elias/Desktop/MatWerk_Projects/mapping/results'
     
     # mapFile         = sys.argv[1]

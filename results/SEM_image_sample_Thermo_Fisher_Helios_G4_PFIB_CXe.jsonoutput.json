@@ -1,0 +1,74 @@
+{
+    "entry": {
+        "user": {
+            "userName": "user"
+        },
+        "instrument": {
+            "instrumentName": "HeliosPFIB",
+            "imaging": {
+                "apertureSetting": {
+                    "size": {
+                        "value": 6.4e-05
+                    }
+                },
+                "dwellTime": {
+                    "value": 1e-05
+                },
+                "pixelSize": {
+                    "xPixelSize": {
+                        "value": 2.69792e-07
+                    },
+                    "yPixelSize": {
+                        "value": 2.69792e-07
+                    }
+                },
+                "cycleTime": {
+                    "value": 15.8208
+                },
+                "numberOfPixels": {
+                    "xPixels": 1536,
+                    "yPixels": 1024
+                }
+            },
+            "eBeamSource": {
+                "accelerationVoltage": {
+                    "value": 20000
+                },
+                "beamCurrent": {
+                    "value": 3.2e-09
+                }
+            },
+            "stage": {
+                "tiltCorrectionAngle": {
+                    "value": 1.22173
+                },
+                "preTilt": {
+                    "value": ""
+                },
+                "coordinates": {
+                    "xValue": -0.00333242,
+                    "yValue": -0.0115393,
+                    "zValue": 0.00800001
+                },
+                "stageTiltAngle": {
+                    "value": 1.95126e-06
+                },
+                "eBeamWorkingDistance": {
+                    "value": 0.00794789
+                }
+            },
+            "chamberPressure": {
+                "value": 8.97e-05
+            },
+            "detectors": {
+                "detector1": {
+                    "detectorName": "CBS"
+                }
+            }
+        },
+        "program": {
+            "programVersion": "14.5.1.432"
+        },
+        "endTime": "2022-03-17T11:05:00"
+    }
+}

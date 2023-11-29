@@ -42,13 +42,33 @@ class semReader:
         md = hs.load(file_path, lazy=True)
         md_dict = md.original_metadata.as_dictionary()
         if 'CZ_SEM' in md_dict:
-            metadata = md_dict.get('CZ_SEM')
+            metadata = md_dict.get('CZ_SEM', {})
         elif 'fei_metadata' in md_dict:
-            metadata = md_dict.get('fei_metadata')
+            metadata = md_dict.get('fei_metadata', {})
         else:
             metadata = {}
 
-        return metadata
+        # Flatten the metadata
+        flattened_metadata = self._flatten_metadata(metadata)
+        return flattened_metadata
+
+    def _flatten_metadata(self, metadata):
+        """
+        Flatten a nested dictionary by concatenating parent and child keys.
+
+        :param metadata: Nested dictionary to be flattened.
+        :return: Flattened dictionary.
+        """
+        flattened = {}
+        for top_key, sub_dict in metadata.items():
+            if isinstance(sub_dict, dict):
+                for sub_key, value in sub_dict.items():
+                    new_key = f"{top_key}.{sub_key}"
+                    flattened[new_key] = value
+            else:
+                # In case the top-level item is not a dictionary, just include it as is
+                flattened[top_key] = sub_dict
+        return flattened
 
     def get_metadata(self):
         if not self.metadata_list:
@@ -60,9 +80,3 @@ class semReader:
     
     def get_temp_dir_path(self):
         return self.temp_dir_path
-
-
-
-
-
-

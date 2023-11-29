@@ -1,22 +1,21 @@
 from datetime import datetime
+from dateutil import parser
 
 class DataCleaner:
 
     @staticmethod
     def clean_date_format(metadata):
         """
-        Convert date and time from the metadata to ISO 8601 format.
+        Convert date and time from the 'entry.endTime' metadata to ISO 8601 format using dateutil parser.
         """
-        date_str = metadata.get("entry.endTime.Date", "")
-        time_str = metadata.get("entry.endTime.Time", "")
-        
-        # Convert to ISO 8601 format
+        datetime_str = metadata.get("entry.endTime", "")
+
         try:
-            dt = datetime.strptime(f"{date_str} {time_str}", "%d %b %Y %H:%M:%S")
+            dt = parser.parse(datetime_str)
             iso_format = dt.isoformat()
             metadata["entry.endTime"] = iso_format
-        except ValueError:
-            print(f"Error: Unable to convert date and time for {metadata.get('entry.title', '')}")
+        except ValueError as e:
+            print(f"Error: Unable to convert 'entry.endTime' to ISO 8601 format for {metadata.get('entry.title', '')}. Error: {e}")
 
         # Remove the old Date and Time keys
         metadata.pop("entry.endTime.Date", None)

@@ -1,0 +1,82 @@
+{
+    "entry": {
+        "user": {
+            "userName": "supervisor"
+        },
+        "instrument": {
+            "instrumentName": "DESY NANOLAB",
+            "imaging": {
+                "apertureSetting": {
+                    "size": {
+                        "value": 3.2e-05
+                    }
+                },
+                "dwellTime": {
+                    "value": 1e-05
+                },
+                "pixelSize": {
+                    "xPixelSize": {
+                        "value": 5.39583e-08
+                    },
+                    "yPixelSize": {
+                        "value": 5.39583e-08
+                    }
+                },
+                "cycleTime": {
+                    "value": 15.831
+                },
+                "numberOfPixels": {
+                    "xPixels": 1536,
+                    "yPixels": 1024
+                }
+            },
+            "eBeamSource": {
+                "accelerationVoltage": {
+                    "value": 5000
+                },
+                "beamCurrent": {
+                    "value": 1e-10
+                }
+            },
+            "stage": {
+                "tiltCorrectionAngle": {
+                    "value": 0
+                },
+                "preTilt": {
+                    "value": 0
+                },
+                "coordinates": {
+                    "xValue": -0.000306417,
+                    "yValue": 0.00203788,
+                    "zValue": 0.00705703
+                },
+                "stageTiltAngle": {
+                    "value": -1.17076e-06
+                },
+                "eBeamWorkingDistance": {
+                    "value": 0.00708429
+                }
+            },
+            "chamberPressure": {
+                "value": 0.000273188
+            },
+            "detectors": {
+                "detector1": {
+                    "detectorName": "ETD"
+                }
+            },
+            "eBeamDecelaration": {
+                "landingEnergy": {
+                    "value": 5000
+                },
+                "stageBias": {
+                    "value": 0
+                }
+            }
+        },
+        "program": {
+            "programVersion": "7.6.1.4139"
+        },
+        "endTime": "2022-10-26T19:17:06"
+    }
+}

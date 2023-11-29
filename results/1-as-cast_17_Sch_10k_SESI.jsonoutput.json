@@ -1,0 +1,126 @@
+{
+    "entry": {
+        "title": "1-as-cast_17_Sch_10k_SESI.tif",
+        "endTime": {
+            "Date": "9 Dec 2019",
+            "Time": "11:19:43"
+        },
+        "program": {
+            "programVersion": "V05.07.00.00 : 08-Jul-14"
+        },
+        "user": {
+            "userName": "SABINE"
+        },
+        "sample": {
+            "sampleSize": {
+                "value": 10,
+                "unit": "mm"
+            },
+            "sampleHolder": "Carousel 8x6.5mm"
+        },
+        "instrument": {
+            "instrumentManufacturer": {
+                "modelName": "Auriga 60-46-18"
+            },
+            "chamberPressure": {
+                "value": 5.73e-06,
+                "unit": "mbar"
+            },
+            "eBeamSource": {
+                "accelerationVoltage": {
+                    "value": 10.0,
+                    "unit": "kV"
+                },
+                "beamCurrent": {
+                    "unit": "\u00b5A",
+                    "value": 80.0
+                }
+            },
+            "stage": {
+                "stageAlignmentDone": true,
+                "tiltAngle": {
+                    "value": 0.0,
+                    "unit": "\u00b0"
+                }
+            },
+            "FIB": {
+                "iBeamWorkingDistance": {
+                    "value": 0.0,
+                    "unit": "mm"
+                },
+                "angleToEBeam": {
+                    "value": 54.0,
+                    "unit": "\u00b0"
+                },
+                "iBeamSource": {
+                    "accelerationVoltage": {
+                        "value": 0.0,
+                        "unit": "kV"
+                    },
+                    "beamCurrent": {
+                        "value": 0.2,
+                        "unit": "\u00b5A"
+                    },
+                    "sourceLifetime": {
+                        "value": 2960.92,
+                        "unit": "\u00b5Ah"
+                    }
+                },
+                "gunPressure": {
+                    "value": 2.19e-08,
+                    "unit": "mbar"
+                },
+                "gasInjectionSystem": {
+                    "GISName": "None"
+                },
+                "FIBSpotSize": {
+                    "value": 979.8,
+                    "unit": "nm"
+                }
+            },
+            "imaging": {
+                "coordinates": {
+                    "xValue": 74.9182,
+                    "coordinatesUnit": "mm",
+                    "zValue": 93.5093
+                },
+                "numberOfPixels": {
+                    "xPixels": "1024 * 768"
+                },
+                "pixelSize": {
+                    "xPixelSize": {
+                        "value": 11.16,
+                        "unit": "nm"
+                    }
+                },
+                "tiltCorrection": false,
+                "apertureSetting": {
+                    "size": {
+                        "value": 120.0,
+                        "unit": "\u00b5m"
+                    }
+                },
+                "dwellTime": {
+                    "value": 100,
+                    "unit": "ns"
+                }
+            },
+            "detectors": {
+                "signalMixingDone": false,
+                "detector1": {
+                    "detectorName": "Signal A",
+                    "detectorBias": {
+                        "value": 300,
+                        "unit": "V"
+                    }
+                }
+            },
+            "eBeamDeceleration": {
+                "stageBias": {
+                    "value": 0,
+                    "unit": "V"
+                }
+            }
+        }
+    }
+}

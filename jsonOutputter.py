@@ -5,8 +5,10 @@ import zipfile
 class JsonOutputter:
     def __init__(self, mapped_metadata):
         self.mapped_metadata = mapped_metadata
+        # print("JsonOutputter initialized with mapped metadata:", self.mapped_metadata)  # Debug statement
 
     def _create_nested_structure(self, keys, value, dictionary):
+        # print(f"Creating nested structure for keys: {keys}, value: {value}")  # Debug statement
         if len(keys) == 1:
             dictionary[keys[0]] = value
         else:
@@ -20,19 +22,21 @@ class JsonOutputter:
         for key, value in self.mapped_metadata.items():
             keys_list = key.split('.')
             self._create_nested_structure(keys_list, value, nested_dict)
+        # print("Generated nested JSON:", nested_dict)  # Debug statement
         return nested_dict
 
     def save_to_file(self, file_path):
         nested_json = self.generate_nested_json()
         with open(file_path + 'output.json', 'w') as f:
             json.dump(nested_json, f, indent=4)
-        print(f'File output to {file_path}.')
+        # print(f'File output to {file_path}.')  # Debug statement
         return file_path  # Return the path of the saved file
     
     @staticmethod
     def save_to_zip(zip_filename, data_list, outputPath):
         with zipfile.ZipFile(zip_filename, 'w') as zipf:
             for idx, data in enumerate(data_list):
+                # print(f"Processing data for zip: {data}")  # Debug statement
                 outputter = JsonOutputter(data)
                 nested_json = outputter.generate_nested_json()
                 json_content = json.dumps(nested_json, indent=4)
@@ -50,6 +54,3 @@ class JsonOutputter:
                     os.remove(os.path.join(directory, filename))
                 except Exception as e:
                     print(f"Error deleting hidden file {filename}: {e}")
-
-
-
