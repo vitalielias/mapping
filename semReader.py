@@ -40,7 +40,15 @@ class semReader:
 
     def _extract_metadata(self, file_path):
         md = hs.load(file_path, lazy=True)
-        return md.original_metadata.as_dictionary().get('CZ_SEM', {})
+        md_dict = md.original_metadata.as_dictionary()
+        if 'CZ_SEM' in md_dict:
+            metadata = md_dict.get('CZ_SEM')
+        elif 'fei_metadata' in md_dict:
+            metadata = md_dict.get('fei_metadata')
+        else:
+            metadata = {}
+
+        return metadata
 
     def get_metadata(self):
         if not self.metadata_list:
