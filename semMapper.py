@@ -7,25 +7,6 @@ class semMapper:
         with open(map_file_path, 'r') as f:
             self.mapping = json.load(f)
         self.mapped_metadata_list = []
-
-    # def _map_metadata(self, metadata):
-    #     mapped_metadata = {}
-    #     for hyperspy_key, schema_info in self.mapping.items():
-    #         if hyperspy_key in metadata:
-    #             for key_type, schema_key in schema_info.items():
-    #                 if key_type == "value":
-    #                     index = 1
-    #                 elif key_type == "unit":
-    #                     index = 2
-    #                 else:
-    #                     continue
-
-    #                 try:
-    #                     value = metadata[hyperspy_key][index]
-    #                     mapped_metadata[schema_key] = value
-    #                 except (TypeError, IndexError):
-    #                     print(f"Error processing {hyperspy_key} for {key_type}")
-    #     return mapped_metadata
     
     def _map_metadata(self, metadata):
         """
@@ -43,6 +24,9 @@ class semMapper:
                 mapped_metadata[new_key] = value
 
         print(f'Here is the mapped metadata:\n {mapped_metadata}')
+        mapped_metadata = self.SI_unit_merge(mapped_metadata)
+        print(f'Here is the mapped metadata with the unit mappings:\n {mapped_metadata}')
+
         return mapped_metadata
 
     def get_mapped_metadata(self):
@@ -63,3 +47,33 @@ class semMapper:
 
         return self.mapped_metadata_list
 
+    def SI_unit_merge(self, input_metadata):
+        """
+        Merge the given metadata dictionary with a standard SI units mapping.
+        :param input_metadata: Dictionary containing mapped metadata.
+        :return: Dictionary containing mapped metadata merged with SI unit mappings.
+        """
+        SI_unit_mappings = {
+            "entry.instrument.eBeamSource.accelerationVoltage.unit": "V",
+            "entry.instrument.eBeamSource.beamCurrent.unit": "A",
+            "entry.instrument.stage.tiltCorrectionAngle.unit": "radian",
+            "entry.instrument.stage.stageTiltAngle.unit": "radian",
+            "entry.instrument.stage.preTilt.unit": "radian",
+            "entry.instrument.stage.eBeamWorkingDistance.unit": "m",
+            "entry.instrument.stage.coordinates.coordinatesUnit": "m",
+            "entry.instrument.imaging.pixelSize.xPixelSize.unit": "m/pixel",
+            "entry.instrument.imaging.apertureSetting.size.unit": "m",
+            "entry.instrument.imaging.dwellTime.unit": "s",
+            "entry.instrument.imaging.cycleTime.unit": "s",
+            "entry.instrument.eBeamDecelaration.stageBias.unit": "V",
+            "entry.instrument.eBeamDecelaration.landingEnergy.unit": "eV",
+            "entry.instrument.chamberPressure.unit": "Pa"
+        }
+        
+        # Merge the SI units mapping with the mapped metadata
+        for key in SI_unit_mappings:
+            if key not in input_metadata:
+                input_metadata[key] = SI_unit_mappings[key]
+        
+        print(f'Here is the unit-mapped dictionary:\n{input_metadata}')
+        return input_metadata
