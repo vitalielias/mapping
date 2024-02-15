@@ -1,0 +1,978 @@
+{
+    "acquisition": {
+        "genericMetadata": {
+            "program": {
+                "programName": "Auto Slice & View 4",
+                "programVersion": "4.2.1.1982"
+            },
+            "applicationId": {
+                "identifierValue": "ASV"
+            },
+            "fileVersion": 1.2,
+            "projectName": "20200818_AlSi13 XRM tomo2",
+            "zCutSpacing": {
+                "value": 2.0000000000000002e-07
+            },
+            "numberOfCuts": 719,
+            "pump": "TMP",
+            "column": "Elstar",
+            "source": "FEG",
+            "eucentricWorkingDistance": {
+                "value": 0.004
+            },
+            "ESEM": "no",
+            "systemType": "Helios G4 PFIB CXe",
+            "stage": "110 x 110"
+        },
+        "dataset": [
+            {
+                "rows": 1,
+                "columns": 1,
+                "tileColumn": 0,
+                "user": {
+                    "userName": "user"
+                },
+                "program": {
+                    "programName": "14.5.1.432"
+                },
+                "instrument": {
+                    "beamType": "EBeam",
+                    "spot": 1,
+                    "eBeam": {
+                        "accelerationVoltage": {
+                            "value": 15000
+                        },
+                        "beamCurrent": {
+                            "value": 1.6e-09
+                        },
+                        "scanRotation": {
+                            "value": 0
+                        },
+                        "imageMode": {
+                            "value": "Normal"
+                        },
+                        "apertureSetting": {
+                            "size": {
+                                "value": 4.53e-05
+                            }
+                        },
+                        "horizontalFieldWidth": {
+                            "value": 0.000592
+                        },
+                        "verticalFieldWidth": {
+                            "value": 0.000394667
+                        },
+                        "tiltCorrectionIsOn": "no",
+                        "dynamicFocusIsOn": "no",
+                        "dynamicWDIsOn": "",
+                        "lensMode": "Field-Free",
+                        "tiltCorrectionAngle": {
+                            "value": 0.977384
+                        },
+                        "preTilt": {
+                            "value": ""
+                        },
+                        "magnificationCorrection": "Off"
+                    },
+                    "scan": {
+                        "dwellTime": {
+                            "value": 3e-07
+                        },
+                        "pixelWidth": {
+                            "value": 3.85417e-07
+                        },
+                        "pixelHeight": {
+                            "value": 3.85417e-07
+                        },
+                        "horizontalFieldSize": {
+                            "value": 0.000592
+                        },
+                        "verticalFieldSize": {
+                            "value": 0.000394667
+                        },
+                        "average": 0,
+                        "integrate": 0,
+                        "frameTime": {
+                            "value": 0.494592
+                        },
+                        "eScan": {
+                            "mainsLock": "Off",
+                            "lineTime": {
+                                "value": 0.000483
+                            },
+                            "lineIntegration": 1,
+                            "scanInterlacing": 1
+                        }
+                    },
+                    "imaging": {
+                        "digitalContrast": 1,
+                        "digitalBrightness": 0,
+                        "digitalGamma": 1,
+                        "numberOfPixels": {
+                            "xPixels": 1536,
+                            "yPixels": 1024
+                        },
+                        "driftcorrected": "Off",
+                        "zoomfactor": 1,
+                        "postprocessing": "",
+                        "transformation": ""
+                    },
+                    "detector": {
+                        "name": "ETD"
+                    },
+                    "hotStageMEMS": {
+                        "heatingCurrent": {
+                            "value": ""
+                        },
+                        "heatingVoltage": {
+                            "value": ""
+                        },
+                        "targetTemperature": {
+                            "value": ""
+                        },
+                        "actualTemperature": {
+                            "value": ""
+                        },
+                        "heatingPower": {
+                            "value": ""
+                        },
+                        "sampleBias": {
+                            "value": ""
+                        },
+                        "sampleResistance": {
+                            "value": ""
+                        }
+                    }
+                },
+                "images": [
+                    {
+                        "creationTime": "18.08.2020 13:40:03",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402349
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.336851
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.00012
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -9.45602e-10
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:43:43",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402365
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.336851
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000118
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.01355e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 14:01:19",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.0040246
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.33685
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000115
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.00966e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:57:16",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402444
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.336851
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000115
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.03179e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:55:20",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402428
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.336851
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000116
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -9.19317e-10
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:51:14",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402412
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.336851
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000116
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -9.44088e-10
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:45:16",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402381
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.33685
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000119
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.00539e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:49:18",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00402396
+                            },
+                            "stageX": {
+                                "value": 0.000225271
+                            },
+                            "stageY": {
+                                "value": -0.00467317
+                            },
+                            "stageZ": {
+                                "value": 0.00402333
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 0.336851
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000117
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.01817e-09
+                        }
+                    }
+                ]
+            },
+            {
+                "rows": 1,
+                "columns": 1,
+                "tileColumn": 0,
+                "user": {
+                    "userName": "user"
+                },
+                "program": {
+                    "programName": "14.5.1.432"
+                },
+                "instrument": {
+                    "beamType": "EBeam",
+                    "spot": 1,
+                    "eBeam": {
+                        "accelerationVoltage": {
+                            "value": 15000
+                        },
+                        "beamCurrent": {
+                            "value": 1.6e-09
+                        },
+                        "scanRotation": {
+                            "value": 0
+                        },
+                        "imageMode": {
+                            "value": "Normal"
+                        },
+                        "apertureSetting": {
+                            "size": {
+                                "value": 4.53e-05
+                            }
+                        },
+                        "horizontalFieldWidth": {
+                            "value": 0.000171
+                        },
+                        "verticalFieldWidth": {
+                            "value": 0.000154
+                        },
+                        "tiltCorrectionIsOn": "no",
+                        "dynamicFocusIsOn": "no",
+                        "dynamicWDIsOn": "",
+                        "lensMode": "Field-Free",
+                        "tiltCorrectionAngle": {
+                            "value": 0.977384
+                        },
+                        "preTilt": {
+                            "value": ""
+                        },
+                        "magnificationCorrection": "Off"
+                    },
+                    "scan": {
+                        "dwellTime": {
+                            "value": 3e-07
+                        },
+                        "pixelWidth": {
+                            "value": 2e-07
+                        },
+                        "pixelHeight": {
+                            "value": 2e-07
+                        },
+                        "horizontalFieldSize": {
+                            "value": 0.000171
+                        },
+                        "verticalFieldSize": {
+                            "value": 0.000154
+                        },
+                        "average": 0,
+                        "integrate": 0,
+                        "frameTime": {
+                            "value": 0.214599
+                        },
+                        "eScan": {
+                            "mainsLock": "Off",
+                            "lineTime": {
+                                "value": 0.0002787
+                            },
+                            "lineIntegration": 1,
+                            "scanInterlacing": 1
+                        }
+                    },
+                    "imaging": {
+                        "digitalContrast": 1,
+                        "digitalBrightness": 0,
+                        "digitalGamma": 1,
+                        "numberOfPixels": {
+                            "xPixels": 1536,
+                            "yPixels": 1024
+                        },
+                        "driftcorrected": "Off",
+                        "zoomfactor": 1,
+                        "postprocessing": "",
+                        "transformation": ""
+                    },
+                    "detector": {
+                        "name": "ETD"
+                    },
+                    "hotStageMEMS": {
+                        "heatingCurrent": {
+                            "value": ""
+                        },
+                        "heatingVoltage": {
+                            "value": ""
+                        },
+                        "targetTemperature": {
+                            "value": ""
+                        },
+                        "actualTemperature": {
+                            "value": ""
+                        },
+                        "heatingPower": {
+                            "value": ""
+                        },
+                        "sampleBias": {
+                            "value": ""
+                        },
+                        "sampleResistance": {
+                            "value": ""
+                        }
+                    }
+                },
+                "images": [
+                    {
+                        "creationTime": "18.08.2020 13:49:45",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397861
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000117
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.28213e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:44:05",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397821
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000118
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.27759e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 14:01:46",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397941
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000113
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.24683e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:45:38",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397841
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000117
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.17885e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:40:25",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397801
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.00012
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.2788e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:55:47",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397901
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000116
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.18688e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:57:43",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397921
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000114
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.28266e-09
+                        }
+                    },
+                    {
+                        "creationTime": "18.08.2020 13:51:41",
+                        "stage": {
+                            "workingDistance": {
+                                "value": 0.00397881
+                            },
+                            "stageX": {
+                                "value": 0.000218852
+                            },
+                            "stageY": {
+                                "value": -0.00481875
+                            },
+                            "stageZ": {
+                                "value": 0.0040407
+                            },
+                            "stageR": {
+                                "value": 0.648119
+                            },
+                            "stageTa": {
+                                "value": 1.00006
+                            },
+                            "stageTb": {
+                                "value": 0
+                            },
+                            "specTilt": {
+                                "value": ""
+                            },
+                            "activeStage": "Bulk"
+                        },
+                        "vacuum": {
+                            "chamberPressure": {
+                                "value": 0.000116
+                            },
+                            "gas": "",
+                            "userMode": "High vacuum",
+                            "humidity": ""
+                        },
+                        "temperature": {
+                            "value": ""
+                        },
+                        "specimenCurrent": {
+                            "value": -1.24925e-09
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
