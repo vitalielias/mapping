@@ -12,9 +12,9 @@ class semMapper:
         mapped_metadata = {}
 
         for key, value_tuple in metadata.items():
-            # if len(value_tuple) != 3: 
-            #     print(f"Warning: Unexpected tuple format for key: {key}, tuple: {value_tuple}")
-            #     continue
+            if len(value_tuple) != 3: 
+                print(f"Warning: Unexpected tuple format for key: {key}, tuple: {value_tuple}")
+                continue
 
             base_key = value_tuple[0]  # Extract the base key name
             value = value_tuple[1]
@@ -37,7 +37,7 @@ class semMapper:
         if not self.metadata_list:
             return [{"message": "No metadata matching the schema is available. The file may be from an instrument that is too old to embed the required metadata, or a metadata file type which is incompatible with Hyperspy."}]
         else:
-            # print('Entering the for loop through metadata_list...')
+            print('Entering the for loop through metadata_list...')
             for metadata in self.metadata_list:
                 if not metadata:  # Check if the metadata is empty
                     self.mapped_metadata_list.append({"message": "No metadata matching the schema is available. The file may be from an instrument that is too old to embed the required metadata, or a metadata file type which is incompatible with Hyperspy."})
