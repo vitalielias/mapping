@@ -12,14 +12,14 @@ class semMapper:
         mapped_metadata = {}
 
         for key, value_tuple in metadata.items():
-            print(f"Processing key: {key}, value_tuple: {value_tuple}")
+            # print(f"Processing key: {key}, value_tuple: {value_tuple}")
             if not isinstance(value_tuple, tuple) or len(value_tuple) < 2:
-                print(f"Warning: Unexpected tuple format for key: {key}, tuple: {value_tuple}")
+                # print(f"Warning: Unexpected tuple format for key: {key}, tuple: {value_tuple}")
                 continue
 
             base_key = value_tuple[0]  # Extract the base key name
             if not isinstance(base_key, str):
-                print(f"Warning: Unexpected base_key type for key: {key}, base_key: {base_key}")
+                # print(f"Warning: Unexpected base_key type for key: {key}, base_key: {base_key}")
                 continue
 
             value = value_tuple[1]
