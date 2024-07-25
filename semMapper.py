@@ -12,23 +12,32 @@ class semMapper:
         mapped_metadata = {}
 
         for key, value_tuple in metadata.items():
-            if len(value_tuple) != 3: 
+            print(f"Processing key: {key}, value_tuple: {value_tuple}")
+            if not isinstance(value_tuple, tuple) or len(value_tuple) < 2:
                 print(f"Warning: Unexpected tuple format for key: {key}, tuple: {value_tuple}")
                 continue
 
             base_key = value_tuple[0]  # Extract the base key name
+            if not isinstance(base_key, str):
+                print(f"Warning: Unexpected base_key type for key: {key}, base_key: {base_key}")
+                continue
+
             value = value_tuple[1]
-            unit = value_tuple[2]
+            unit = value_tuple[2] if len(value_tuple) == 3 else None  # Handle missing unit
 
             mapped_key_value = self.mapping["mappedTerms"].get(base_key + "_value")
             mapped_key_unit = self.mapping["mappedTerms"].get(base_key + "_unit")
 
             if mapped_key_value:
                 mapped_metadata[mapped_key_value] = value
-            if mapped_key_unit:
+            if mapped_key_unit and unit is not None:  # Check if unit mapping exists and unit is provided
                 mapped_metadata[mapped_key_unit] = unit
 
+        print(f"Mapped metadata: {mapped_metadata}")
         return mapped_metadata
+
+
+
 
 
 
